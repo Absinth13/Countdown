@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Halloween</title>
+    <style>
+
+</style>
+    
+
+</head>
+<body>
+    <h1>Wie viele Tage sind es noch bis Halloween?</h1>
+<div id="countdown-box">
+<div id="countdown">
+
+        <div class="box">
+            <span id="dias">0</span>
+            <p>Tage</p>
+        </div>
+
+        <div class="box">
+            <span id="horas">0</span>
+            <p>Stunden</p>
+        </div>
+
+        <div class="box">
+            <span id="minutos">0</span>
+            <p>Minuten</p>
+        </div>
+
+        <div class="box">
+            <span id="segundos">0</span>
+            <p>Sekunden</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+    <script>
+///-------- calcula cuantos dias faltan para Halloween---------------
+
+let anio = new Date().getFullYear();
+
+//Object = new Date(jahr, monat, tag, std, min, sek);
+let ablauf = new Date(anio,9,31,18,0,0).getTime() / 1000;
+//alert(ablauf);
+
+function hallo(){
+    let now = new Date().getTime() / 1000;
+
+    let diff = ablauf - now;
+
+    let dia      = Math.floor(diff/(3600 * 24));
+    let horas    = Math.floor(diff % (3600 * 24) / 3600);
+    let minutos  = Math.floor((diff% 3600)/60);
+    let segundos = Math.floor(diff % 60);
+
+   
+    $("#dias").text(dia);
+    $("#horas").text(horas);
+    $("#minutos").text(minutos);
+    $("#segundos").text(segundos);
+}
+
+   hallo();
+   setInterval(hallo, 1000);
+
+
+
+
+    </script>
+    
+</body>
+</html>
